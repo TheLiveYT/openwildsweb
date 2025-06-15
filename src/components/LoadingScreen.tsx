@@ -1,14 +1,18 @@
-
 import { useEffect, useState } from 'react';
 
 const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false);
-      setTimeout(onLoadingComplete, 800); // Wait for fade out animation
-    }, 2000); // 2 seconds loading duration
+      setIsAnimatingOut(true);
+      // Po animaci schovej a zavolej callback
+      setTimeout(() => {
+        setIsVisible(false);
+        onLoadingComplete();
+      }, 800); // délka animace musí odpovídat CSS
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -30,7 +34,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   if (!isVisible) return null;
 
   return (
-    <div className={`loading-overlay ${!isVisible ? 'hidden' : ''}`}>
+    <div className={`loading-overlay ${isAnimatingOut ? 'slide-up-fade' : ''}`}>
       <div className="moving-background"></div>
       <div className="moving-particles">
         {generateParticles()}
@@ -38,7 +42,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
       
       <div className="loading-content">
         <div className="loading-logo"></div>
-        <div className="loading-text">mc.draukoo.eu</div>
+        <div className="loading-text">OpenWilds</div>
         <div className="text-green-400/60 text-sm mb-6 animate-pulse">
           Initializing server connection...
         </div>

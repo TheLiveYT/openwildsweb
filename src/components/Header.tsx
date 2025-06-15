@@ -16,10 +16,10 @@ const Header = () => {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "Explore", href: "#explore", icon: Users },
-    { name: "Join Server", href: "/join", icon: Link },
-    { name: "Gallery", href: "/gallery", icon: Image },
-    { name: "Discord", href: "#discord", icon: MessageSquare },
-    { name: "Store", href: "#store", icon: Store },
+    { name: "Join Server", href: "#join", icon: Link },
+    { name: "Gallery", href: "#gallery", icon: Image },
+    { name: "Discord", href: "https://discord.gg/2m8DAJ3ZGW", icon: MessageSquare },
+    { name: "Store", href: "https://store.openwilds.com/", icon: Store },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Header = () => {
               <div className="relative h-12 group-hover:scale-110 transition-all duration-500">
                 {/* OpenWilds Logo Image */}
                 <img 
-                  src="/lovable-uploads/e9762dfc-7b09-4289-8d1c-d7f79dccf085.png" 
+                  src={`${import.meta.env.BASE_URL}lovable-uploads/logisko.png`}
                   alt="OpenWilds"
                   className={`h-12 w-auto object-contain transition-all duration-500 ${
                     scrollY > 50 ? 'filter brightness-90' : 'filter brightness-100'

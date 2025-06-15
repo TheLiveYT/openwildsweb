@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Copy, CheckCircle, Users, Pickaxe, Coins, Map, ArrowRight, Sparkles, Zap, Star, Crown, Compass, Mountain, Trees, Globe } from "lucide-react";
@@ -8,11 +8,36 @@ import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const currentY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      currentY.current = window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    let animationFrameId: number;
+
+    const smoothUpdate = () => {
+      setScrollY(prev => {
+        const delta = currentY.current - prev;
+        return prev + delta * 0.1;
+      });
+      animationFrameId = requestAnimationFrame(smoothUpdate);
+    };
+
+    smoothUpdate();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
   const [copied, setCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const serverIP = "mc.draukoo.eu";
+  const serverIP = "mc.openwilds.com";
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -92,14 +117,15 @@ const Index = () => {
     }
   ];
 
-  const galleryImages = [
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop"
-  ];
+const galleryImages = [
+  `${import.meta.env.BASE_URL}lovable-uploads/1.png`,
+  `${import.meta.env.BASE_URL}lovable-uploads/2.png`,
+  `${import.meta.env.BASE_URL}lovable-uploads/3.png`,
+  `${import.meta.env.BASE_URL}lovable-uploads/4.png`,
+  `${import.meta.env.BASE_URL}lovable-uploads/5.png`,
+  `${import.meta.env.BASE_URL}lovable-uploads/6.png`,
+];
+
 
   if (isLoading) {
     return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
@@ -116,7 +142,7 @@ const Index = () => {
           className="absolute inset-0 opacity-50 main-bg-image"
           style={{
             transform: `translateY(${scrollY * 0.7}px) scale(${1 + scrollY * 0.0008})`,
-            backgroundImage: "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop')",
+            backgroundImage: `url(${import.meta.env.BASE_URL}lovable-uploads/1.png)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -129,7 +155,7 @@ const Index = () => {
           className="absolute inset-0 opacity-30 secondary-bg"
           style={{
             transform: `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0005})`,
-            backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop')",
+            backgroundImage: `url(${import.meta.env.BASE_URL}lovable-uploads/4.png)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center bottom',
             backgroundRepeat: 'no-repeat'
@@ -196,7 +222,7 @@ const Index = () => {
             {/* OpenWilds Logo Image replacing text */}
             <div className="mb-10 flex justify-center">
               <img 
-                src="/lovable-uploads/e9762dfc-7b09-4289-8d1c-d7f79dccf085.png" 
+                src={`${import.meta.env.BASE_URL}lovable-uploads/e9762dfc-7b09-4289-8d1c-d7f79dccf085.png`}
                 alt="OpenWilds Logo"
                 className="h-32 md:h-48 lg:h-56 w-auto object-contain filter drop-shadow-2xl animate-pulse-slow"
                 style={{
@@ -306,46 +332,45 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="space-y-32">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className={`flex items-center gap-20 ${feature.side === 'right' ? 'flex-row-reverse' : 'flex-row'} max-w-7xl mx-auto feature-row`}
-                style={{
-                  transform: `translateY(${Math.max(0, scrollY - (1200 + index * 300)) * 0.12}px) scale(${Math.min(1, 0.85 + (Math.max(0, scrollY - (1200 + index * 300))) * 0.001)})`
-                }}
-              >
-                <div className="flex-1">
-                  <Card className="glass border-white/20 hover-lift hover-glow group overflow-hidden transform hover:scale-110 transition-all duration-700 shadow-2xl feature-card">
-                    <CardContent className="p-14 relative z-10">
-                      <div className="relative mb-10">
-                        <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-500 blur-lg`}></div>
-                        <feature.icon className="w-24 h-24 text-emerald-400 group-hover:scale-130 transition-all duration-500 relative z-10 filter saturate-150" />
-                      </div>
-                      <h3 className="text-4xl font-bold mb-8 text-white/90 group-hover:text-white transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-white/70 leading-relaxed text-xl">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-                
-                <div className="flex-1">
-                  <div 
-                    className="relative overflow-hidden rounded-3xl aspect-video shadow-2xl transform group hover:scale-110 transition-all duration-700 feature-image border border-white/20"
-                  >
-                    <img 
-                      src={galleryImages[index]} 
-                      alt={`${feature.title} showcase`}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-green-500/40 opacity-70"></div>
-                  </div>
-                </div>
-              </div>
-            ))}
+<div className="space-y-32">
+  {features.map((feature, index) => (
+    <div 
+      key={index}
+      className={`flex items-center gap-20 ${feature.side === 'right' ? 'flex-row-reverse' : 'flex-row'} max-w-7xl mx-auto feature-row`}
+      style={{
+        transform: `translateY(${Math.max(0, scrollY - (1200 + index * 300)) * 0.12}px) scale(${Math.min(1, 0.85 + (Math.max(0, scrollY - (1200 + index * 300))) * 0.001)})`
+      }}
+    >
+      <div className="flex-1">
+        <Card className="glass border-white/20 hover-lift hover-glow group overflow-hidden transform hover:scale-110 transition-all duration-700 shadow-2xl feature-card">
+          <CardContent className="p-14 relative z-10">
+            <div className="relative mb-10">
+              <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-500 blur-lg`}></div>
+              <feature.icon className="w-24 h-24 text-emerald-400 group-hover:scale-130 transition-all duration-500 relative z-10 filter saturate-150" />
+            </div>
+            <h3 className="text-4xl font-bold mb-8 text-white/90 group-hover:text-white transition-colors duration-300">
+              {feature.title}
+            </h3>
+            <p className="text-white/70 leading-relaxed text-xl">
+              {feature.description}
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div className="flex-1">
+        <div 
+          className="relative overflow-hidden rounded-3xl aspect-video shadow-2xl transform group hover:scale-110 transition-all duration-700 feature-image border border-white/20"
+        >
+          <img 
+            src={`${import.meta.env.BASE_URL}lovable-uploads/${(index % 4) + 1}.png`} 
+            alt={`${feature.title} showcase`}
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115"
+          />
+        </div>
+      </div>
+    </div>
+  ))}
           </div>
         </div>
       </section>
@@ -384,7 +409,7 @@ const Index = () => {
                 className="relative overflow-hidden rounded-3xl aspect-video hover-lift group animate-slide-up transform hover:scale-110 transition-all duration-700 shadow-2xl gallery-item border border-white/20"
                 style={{
                   animationDelay: `${400 + index * 150}ms`,
-                  transform: `translateY(${Math.max(0, scrollY - (2800 + index * 100)) * 0.1}px) scale(${Math.min(1, 0.9 + (Math.max(0, scrollY - (2800 + index * 100))) * 0.0008)})`
+                  transform: `translateY(${Math.max(0, scrollY - (2800 + index * 100)) * 0.04}px) scale(${Math.min(1, 0.9 + (Math.max(0, scrollY - (2800 + index * 100))) * 0.0002)})`
                 }}
               >
                 <img 
@@ -410,12 +435,17 @@ const Index = () => {
               transform: `translateY(${Math.max(0, scrollY - 3200) * 0.12}px)`
             }}
           >
-            <Button asChild size="lg" className="glass-button border border-white/30 px-14 py-10 text-2xl rounded-2xl hover-glow group transform hover:scale-110 transition-all duration-500 shadow-2xl relative z-10">
-              <a href="/gallery" className="inline-flex items-center text-white/90 hover:text-white">
-                <span className="font-bold">Explore Full Gallery</span>
-                <ArrowRight className="w-7 h-7 ml-5 group-hover:translate-x-3 transition-transform duration-500" />
-              </a>
-            </Button>
+<Button 
+  asChild 
+  size="lg" 
+  className="glass-button border border-white/30 px-14 py-10 text-2xl rounded-2xl hover-glow group transform hover:scale-110 transition-all duration-500 shadow-2xl relative z-10 -top-20"
+>
+  <a href="/gallery" className="inline-flex items-center text-white/90 hover:text-white">
+    <span className="font-bold">Explore Full Gallery</span>
+    <ArrowRight className="w-7 h-7 ml-5 group-hover:translate-x-3 transition-transform duration-500" />
+  </a>
+</Button>
+
           </div>
         </div>
       </section>

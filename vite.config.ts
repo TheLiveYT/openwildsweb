@@ -3,14 +3,13 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// ⚠️ ZMĚŇ "draukoo-pixel-portal-main" na přesný název GitHub repozitáře
-const repoName = "draukoowebnew";
+const repoName = "openwildsweb"; // ← Bez lomítek
 
 export default defineConfig(({ mode }) => ({
-  base: `/${repoName}/`, // ← přidáno pro GitHub Pages
+  base: mode === 'production' ? '/' : '/',
   server: {
-    host: "::",
-    port: 8080,
+    host: true,
+    port: 5173,
   },
   plugins: [
     react(),

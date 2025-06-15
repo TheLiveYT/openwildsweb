@@ -10,44 +10,44 @@ const Gallery = () => {
 
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop",
-      title: "Epic Castle Build",
-      description: "A magnificent castle built by our community members"
+      src: `${import.meta.env.BASE_URL}lovable-uploads/1.png`,
+      title: "Side of Mountain at Night",
+      description: "A magnificent mountain at the Expedition spawn"
     },
     {
-      src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=800&fit=crop",
+      src: `${import.meta.env.BASE_URL}lovable-uploads/2.png`,
       title: "Mountain Vista",
-      description: "Beautiful mountain landscape with custom terrain generation"
+      description: "Beautiful icy mountain with a river beside it"
     },
     {
-      src: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1200&h=800&fit=crop",
-      title: "Peaceful Lake",
-      description: "Serene lake surrounded by player-built structures"
+      src: `${import.meta.env.BASE_URL}lovable-uploads/3.png`,
+      title: "Large Forest",
+      description: "A large forest that never stops"
     },
     {
-      src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=800&fit=crop",
-      title: "Nether Portal Hub",
-      description: "Central hub connecting to various nether portals"
+      src: `${import.meta.env.BASE_URL}lovable-uploads/4.png`,
+      title: "Forest Vegetation",
+      description: "Beautiful custom generation of flowers and grass"
     },
     {
-      src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1200&h=800&fit=crop",
-      title: "Wildlife Sanctuary",
-      description: "Protected area for minecraft animals and creatures"
+      src: `${import.meta.env.BASE_URL}lovable-uploads/5.png`,
+      title: "Tallest Icy Mountain",
+      description: "Tallest mounatin on the whole server"
     },
     {
-      src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=800&fit=crop",
-      title: "Modern City",
-      description: "Bustling player-built metropolitan area"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-      title: "Underground Base",
-      description: "Hidden underground facility with advanced redstone"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop&bg=555",
+      src: `${import.meta.env.BASE_URL}lovable-uploads/6.png`,
       title: "Floating Islands",
-      description: "Mystical floating islands in the sky dimension"
+      description: "Islands reaching for the sky"
+    },
+    {
+      src: `${import.meta.env.BASE_URL}lovable-uploads/7.png`,
+      title: "Long Icy Valley",
+      description: "Winding icy valley leading to the sea"
+    },
+    {
+      src: `${import.meta.env.BASE_URL}lovable-uploads/8.png`,
+      title: "Dry Mesa",
+      description: "Largest Mesa biome on the server"
     }
   ];
 
@@ -70,14 +70,14 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black-50">
       <Header />
       
       <div className="pt-24 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Server Gallery</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Server Gallery</h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Explore amazing builds, landscapes, and adventures from our Minecraft community
             </p>
           </div>

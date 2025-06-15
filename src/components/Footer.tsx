@@ -1,6 +1,6 @@
 
 const Footer = () => {
-  const serverIP = "mc.draukoo.eu";
+  const serverIP = "mc.openwilds.eu";
   
   return (
     <footer className="glass-green border-t border-green-900/30 py-20 px-6 relative">
@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="absolute inset-0 bg-green-500 rounded-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 blur-md"></div>
               </div>
-              <span className="text-2xl font-bold text-gradient">mc.draukoo.eu</span>
+              <span className="text-2xl font-bold text-gradient">mc.openwilds.eu</span>
             </div>
             <p className="text-green-300/80 leading-relaxed">
               The ultimate Minecraft exploration server with custom worlds, community features, and endless adventures.
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-green-900/30 mt-16 pt-8 text-center">
-          <p className="text-green-400/60">&copy; 2024 mc.draukoo.eu. All rights reserved.</p>
+          <p className="text-green-400/60">&copy; 2025 OpenWilds. All rights reserved.</p>
         </div>
       </div>
     </footer>

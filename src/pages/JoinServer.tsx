@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 const JoinServer = () => {
   const [copied, setCopied] = useState(false);
-  const serverIP = "mc.draukoo.eu";
+  const serverIP = "mc.openwilds.eu";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(serverIP);
@@ -118,7 +118,7 @@ const JoinServer = () => {
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
-                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.draukoo.eu</code> as the server address</span>
+                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.openwilds.eu</code> as the server address</span>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">5</span>
@@ -151,7 +151,7 @@ const JoinServer = () => {
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
-                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.draukoo.eu</code> and port <code className="bg-gray-100 px-2 py-1 rounded">19132</code></span>
+                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.openwilds.eu</code> and port <code className="bg-gray-100 px-2 py-1 rounded">19132</code></span>
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">5</span>
