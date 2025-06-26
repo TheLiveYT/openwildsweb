@@ -15,7 +15,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Explore", href: "#explore", icon: Users },
+    { name: "Tickets", href: "https://openwilds.com/ticket", icon: Users },
     { name: "Join Server", href: "#join", icon: Link },
     { name: "Gallery", href: "#gallery", icon: Image },
     { name: "Discord", href: "https://discord.gg/2m8DAJ3ZGW", icon: MessageSquare },

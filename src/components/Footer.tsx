@@ -1,6 +1,6 @@
 
 const Footer = () => {
-  const serverIP = "mc.openwilds.eu";
+  const serverIP = "mc.openwilds.com";
   
   return (
     <footer className="glass-green border-t border-green-900/30 py-20 px-6 relative">
@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="absolute inset-0 bg-green-500 rounded-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 blur-md"></div>
               </div>
-              <span className="text-2xl font-bold text-gradient">mc.openwilds.eu</span>
+              <span className="text-2xl font-bold text-gradient">mc.openwilds.com</span>
             </div>
             <p className="text-green-300/80 leading-relaxed">
               The ultimate Minecraft exploration server with custom worlds, community features, and endless adventures.
@@ -26,9 +26,9 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-6 text-green-300">Quick Links</h3>
             <ul className="space-y-3 text-green-400/70">
               <li><a href="/" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Home</a></li>
-              <li><a href="/join" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Join Server</a></li>
-              <li><a href="/gallery" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Gallery</a></li>
-              <li><a href="#discord" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Discord</a></li>
+              <li><a href="https://openwilds.com/ticket" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Tickets</a></li>
+              <li><a href="#gallery" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Gallery</a></li>
+              <li><a href="https://discord.gg/2m8DAJ3ZGW" className="hover:text-green-300 transition-colors duration-300 hover:translate-x-1 inline-block">Discord</a></li>
             </ul>
           </div>
           
@@ -36,7 +36,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-6 text-green-300">Server Info</h3>
             <div className="text-green-400/70 space-y-3">
               <p>Server IP: <span className="text-green-400 font-mono bg-black/30 px-2 py-1 rounded">{serverIP}</span></p>
-              <p>Version: Java Edition 1.20+</p>
+              <p>Version: Java Edition 1.21.x</p>
               <p>Status: <span className="text-green-400 inline-flex items-center">
                 <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
                 Online

@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Copy, CheckCircle, Monitor, Smartphone, Users } from "lucide-react";
+import { Copy, CheckCircle, Monitor, Smartphone, Users, Antenna, Rocket} from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const JoinServer = () => {
   const [copied, setCopied] = useState(false);
-  const serverIP = "mc.openwilds.eu";
+  const serverIP = "mc.openwilds.com";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(serverIP);
@@ -22,21 +22,21 @@ const JoinServer = () => {
   };
 
   const serverStats = {
-    onlinePlayers: 42,
+    onlinePlayers: 18,
     maxPlayers: 100,
     uptime: "99.8%",
-    version: "1.20.4"
+    version: "1.21.x"
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black-50">
       <Header />
       
       <div className="pt-24 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Join Our Server</h1>
-            <p className="text-xl text-gray-600">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Join Our Server</h1>
+            <p className="text-xl text-gray-400">
               Ready to start your adventure? Connect to our Minecraft server now!
             </p>
           </div>
@@ -44,7 +44,7 @@ const JoinServer = () => {
           {/* Server IP Card */}
           <Card className="mb-8 text-center">
             <CardHeader>
-              <CardTitle className="text-2xl">Server Address</CardTitle>
+              <CardTitle className="text-green-600">Server Address</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="bg-gray-100 rounded-lg p-6 mb-6">
@@ -66,8 +66,8 @@ const JoinServer = () => {
             <Card>
               <CardContent className="p-4 text-center">
                 <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">{serverStats.onlinePlayers}/{serverStats.maxPlayers}</div>
-                <div className="text-sm text-gray-600">Players Online</div>
+                <div className="text-2xl font-bold text-gray-200">{serverStats.onlinePlayers}/{serverStats.maxPlayers}</div>
+                <div className="text-sm text-white">Players Online</div>
               </CardContent>
             </Card>
             <Card>
@@ -76,19 +76,21 @@ const JoinServer = () => {
                   <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
                 <div className="text-2xl font-bold text-green-600">Online</div>
-                <div className="text-sm text-gray-600">Server Status</div>
+                <div className="text-sm text-white">Server Status</div>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-gray-900">{serverStats.uptime}</div>
-                <div className="text-sm text-gray-600">Uptime</div>
+                <Antenna className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-gray-200">{serverStats.uptime}</div>
+                <div className="text-sm text-white">Uptime</div>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-gray-900">{serverStats.version}</div>
-                <div className="text-sm text-gray-600">Version</div>
+                <Rocket className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-gray-200">{serverStats.version}</div>
+                <div className="text-sm text-white">Version</div>
               </CardContent>
             </Card>
           </div>
@@ -97,7 +99,7 @@ const JoinServer = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-blue-600">
                   <Monitor className="w-6 h-6 mr-2 text-blue-600" />
                   Java Edition (PC)
                 </CardTitle>
@@ -106,23 +108,23 @@ const JoinServer = () => {
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
-                    <span>Open Minecraft Java Edition</span>
+                    <span className="text-white">Open Minecraft Java Edition</span>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">2</span>
-                    <span>Click "Multiplayer"</span>
+                    <span className="text-white">Click "Multiplayer"</span>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">3</span>
-                    <span>Click "Add Server"</span>
+                    <span className="text-white">Click "Add Server"</span>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
-                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.openwilds.eu</code> as the server address</span>
+                    <span className="text-white">Enter <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">mc.openwilds.com</code> as the server address</span>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">5</span>
-                    <span>Click "Done" and then "Join Server"</span>
+                    <span className="text-white">Click "Done" and then "Join Server"</span>
                   </li>
                 </ol>
               </CardContent>
@@ -130,7 +132,7 @@ const JoinServer = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-green-600">
                   <Smartphone className="w-6 h-6 mr-2 text-green-600" />
                   Bedrock Edition (Mobile/Console)
                 </CardTitle>
@@ -139,23 +141,23 @@ const JoinServer = () => {
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
-                    <span>Open Minecraft Bedrock Edition</span>
+                    <span className="text-white">Open Minecraft Bedrock Edition</span>
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">2</span>
-                    <span>Go to "Play" → "Servers"</span>
+                    <span className="text-white">Go to "Play" → "Servers"</span>
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">3</span>
-                    <span>Scroll down and click "Add Server"</span>
+                    <span className="text-white">Scroll down and click "Add Server"</span>
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
-                    <span>Enter <code className="bg-gray-100 px-2 py-1 rounded">mc.openwilds.eu</code> and port <code className="bg-gray-100 px-2 py-1 rounded">19132</code></span>
+                    <span className="text-white">Enter <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">mc.openwilds.com</code> and port <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">19132</code></span>
                   </li>
                   <li className="flex">
                     <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">5</span>
-                    <span>Save and join the server</span>
+                    <span className="text-white">Save and join the server</span>
                   </li>
                 </ol>
                 <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -166,37 +168,6 @@ const JoinServer = () => {
               </CardContent>
             </Card>
           </div>
-
-          {/* Additional Info */}
-          <Card className="mt-8">
-            <CardHeader>
-              <CardTitle>Server Rules & Guidelines</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Basic Rules:</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Be respectful to all players</li>
-                    <li>• No griefing or destroying other players' builds</li>
-                    <li>• No cheating, hacking, or exploiting</li>
-                    <li>• Keep chat family-friendly</li>
-                    <li>• Follow staff instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Getting Started:</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Type <code className="bg-gray-100 px-2 py-1 rounded">/spawn</code> to go to the main area</li>
-                    <li>• Use <code className="bg-gray-100 px-2 py-1 rounded">/help</code> for available commands</li>
-                    <li>• Join our Discord for community chat</li>
-                    <li>• Claim your land to protect your builds</li>
-                    <li>• Visit the tutorial area for new players</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
 

@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
 import JoinServer from "./pages/JoinServer";
 import NotFound from "./pages/NotFound";
+import { PageWrapper } from "./components/PageWrapper";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +40,6 @@ const App = () => {
     };
   }, []);
 
-  // Get basename based on environment
   const basename = import.meta.env.PROD ? '/openwildsweb' : '/';
 
   return (
@@ -47,6 +47,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <PageWrapper>
           <HashRouter>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -55,6 +56,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </HashRouter>
+        </PageWrapper>
       </TooltipProvider>
     </QueryClientProvider>
   );
