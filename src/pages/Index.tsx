@@ -215,7 +215,7 @@ const galleryImages = [
                 <Compass className="w-6 h-6 text-emerald-400 animate-spin" style={{animationDuration: '8s'}} />
                 <div className="absolute inset-0 bg-emerald-400 rounded-full opacity-40 animate-ping"></div>
               </div>
-              <span className="text-white/90 text-xl font-semibold tracking-wide">Exploration Server • 342 Adventurers Online</span>
+              <span className="text-white/90 text-xl font-semibold tracking-wide">Exploration Server • 6 Adventurers Online</span>
               <Mountain className="w-5 h-5 text-emerald-400 animate-bounce" />
             </div>
             
